@@ -6,19 +6,12 @@ window.onload = function() {
     document.getElementById("smile-sample").onclick = drawFaceStaff;
     document.getElementById("pyramid-sample").onclick = drawPyramidStaff;
 
-    // this is how we're connecting our buttons to our JavaScript functions. let's walk through it.
-    //
-    // document.getElementById("some-id")   <-- you need to give each button a unique ID
-    //                                          and access it in this manner
-    //
-    // onclick is an event that is fired when you click something (in our case, a button).
-    // when we give onclick a value, we're telling JavaScript what to do when we click the button.
-    // you should set onclick equal to your function names (i.e., sayHello).
-    //
-    // there are six event listeners being added for the staff solutions. you'll have an
-    // equivalent set of six event listeners for your solutions. the first one is done for you.
-
     document.getElementById("hello").onclick = sayHello;
+    document.getElementById("rectangle").onclick = drawRectangle;
+    document.getElementById("colored-rectangle").onclick = drawColoredRectangle;
+    document.getElementById("triangle").onclick = drawTriangle;
+    document.getElementById("smile").onclick = drawFace;
+    document.getElementById("pyramid").onclick = drawPyramid;
 }
 
 /*
@@ -26,7 +19,16 @@ window.onload = function() {
  */
 
 const sayHello = function() {
-    // write your exercise 1 code here
+  var message = prompt("Message")
+  while (message.length > 50) {
+    alert("Your message is too long. Keep it under 50 characters")
+    var message = prompt("Message")
+  }
+  var canvas = document.getElementById("student-canvas-1");
+  var ctx = canvas.getContext('2d');
+  ctx.font="48px Sans-serif";
+  ctx.clearRect(0, 0, canvas.height, canvas.width);
+  ctx.strokeText(message, 30, 70);
 };
 
 /*
@@ -34,7 +36,17 @@ const sayHello = function() {
  */
 
 const drawRectangle = function() {
-    // write your exercise 2 code here
+    var width = prompt("Width:")
+    var height = prompt("Height:")
+    var xcoord = prompt("X:")
+    var ycoord = prompt("Y:")
+    while (width > 1024 || height > 512 || xcoord < 0 || ycoord < 0) {
+
+    }
+    var canvas = document.getElementById("student-canvas-2");
+    var ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.height, canvas.width);
+    ctx.strokeRect( xcoord, ycoord, width, height);
 };
 
 /*
