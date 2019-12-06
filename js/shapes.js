@@ -1,4 +1,5 @@
 window.onload = function() {
+<<<<<<< HEAD
     document.getElementById("hello-sample").onclick = sayHelloStaff;
     document.getElementById("rectangle-sample").onclick = drawRectangleStaff;
     document.getElementById("colored-rectangle-sample").onclick = drawColoredRectangleStaff;
@@ -12,6 +13,9 @@ window.onload = function() {
     document.getElementById("triangle").onclick = drawTriangle;
     document.getElementById("smile").onclick = drawFace;
     document.getElementById("pyramid").onclick = drawPyramid;
+=======
+    onmouseclick
+>>>>>>> 701d2215564d4b7b2c712fa3558d1eb6e757db68
 }
 
 /*
@@ -36,6 +40,7 @@ const sayHello = function() {
  */
 
 const drawRectangle = function() {
+<<<<<<< HEAD
     var width = prompt("Width:");
     var height = prompt("Height:");
     var xcoord = prompt("X:");
@@ -69,6 +74,9 @@ const drawRectangle = function() {
     var ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.height, canvas.width);
     ctx.strokeRect( xcoord, ycoord, width, height);
+=======
+
+>>>>>>> 701d2215564d4b7b2c712fa3558d1eb6e757db68
 };
 
 /*
@@ -76,6 +84,7 @@ const drawRectangle = function() {
  */
 
 const drawColoredRectangle = function() {
+<<<<<<< HEAD
   var color = prompt("Color:");
   var canvas = document.getElementById("student-canvas-3");
   var ctx = canvas.getContext("2d");
@@ -93,6 +102,9 @@ switch (color) {
 
   ctx.clearRect(0, 0, canvas.height, canvas.width);
   ctx.strokeRect( 10, 10, 100, 50);
+=======
+
+>>>>>>> 701d2215564d4b7b2c712fa3558d1eb6e757db68
 };
 
 
@@ -103,7 +115,11 @@ switch (color) {
  */
 
 const drawTriangle = function() {
+<<<<<<< HEAD
     // write your exercise 4 code here
+=======
+
+>>>>>>> 701d2215564d4b7b2c712fa3558d1eb6e757db68
 };
 
 /*
@@ -111,7 +127,11 @@ const drawTriangle = function() {
  */
 
 const drawFace = function() {
+<<<<<<< HEAD
     // write your exercise 4 code here
+=======
+
+>>>>>>> 701d2215564d4b7b2c712fa3558d1eb6e757db68
 };
 
 /*
@@ -119,5 +139,9 @@ const drawFace = function() {
  */
 
 const drawPyramid = function() {
+<<<<<<< HEAD
     // write your exercise 5 code here
+=======
+
+>>>>>>> 701d2215564d4b7b2c712fa3558d1eb6e757db68
 };
