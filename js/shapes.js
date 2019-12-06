@@ -19,7 +19,7 @@ window.onload = function() {
  */
 
 const sayHello = function() {
-  var message = prompt("Message")
+  var message = prompt("Message:")
   while (message.length > 50) {
     alert("Your message is too long. Keep it under 50 characters")
     var message = prompt("Message")
@@ -36,12 +36,34 @@ const sayHello = function() {
  */
 
 const drawRectangle = function() {
-    var width = prompt("Width:")
-    var height = prompt("Height:")
-    var xcoord = prompt("X:")
-    var ycoord = prompt("Y:")
-    while (width > 1024 || height > 512 || xcoord < 0 || ycoord < 0) {
+    var width = prompt("Width:");
+    var height = prompt("Height:");
+    var xcoord = prompt("X:");
+    var ycoord = prompt("Y:");
 
+    var width = Number(width);
+    var height = Number(height);
+    var xcoord = Number(xcoord);
+    var ycoord = Number(ycoord);
+
+    while (width+xcoord > 1024 || height+ycoord > 512 || xcoord < 0 || ycoord < 0) {
+      if ((width+height+xcoord+ycoord)*0 !== 0) {
+        alert("One of your values is not a number")
+      } else if (height > 1024 || height < 1) {
+        alert("Your height must be between 1 and 1024")
+      } else if (width > 512 || width < 1) {
+        alert("Your width must be between 1 and 512")
+      } else if (xcoord > 1024 || height < 1) {
+        alert("Your y-coordinate must be between 1 and 512")
+      } else if (xcoord > 1024 || height < 1) {
+        alert("Your y-coordinate must be between 1 and 512")
+      } else if (width+xcoord > 1024 || height+ycoord > 512) {
+        alert("Your rectangle won't fit on the canvas.")
+      }
+      var width = prompt("Width:")
+      var height = prompt("Height:")
+      var xcoord = prompt("X:")
+      var ycoord = prompt("Y:")
     }
     var canvas = document.getElementById("student-canvas-2");
     var ctx = canvas.getContext('2d');
@@ -54,8 +76,27 @@ const drawRectangle = function() {
  */
 
 const drawColoredRectangle = function() {
-    // write your exercise 3 code here
+  var color = prompt("Color:");
+  var canvas = document.getElementById("student-canvas-3");
+  var ctx = canvas.getContext("2d");
+  var color = color.toUpperCase()
+
+switch (color) {
+  case BLACK:
+    ctx.fillstyle = "red"
+    break;
+  case BLUE:
+    ctx.fillstyle = "blue"
+    break;
+
+}
+
+  ctx.clearRect(0, 0, canvas.height, canvas.width);
+  ctx.strokeRect( 10, 10, 100, 50);
 };
+
+
+
 
 /*
  * Exercise 4.
