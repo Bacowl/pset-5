@@ -1,5 +1,4 @@
 window.onload = function() {
-<<<<<<< HEAD
     document.getElementById("hello-sample").onclick = sayHelloStaff;
     document.getElementById("rectangle-sample").onclick = drawRectangleStaff;
     document.getElementById("colored-rectangle-sample").onclick = drawColoredRectangleStaff;
@@ -13,9 +12,6 @@ window.onload = function() {
     document.getElementById("triangle").onclick = drawTriangle;
     document.getElementById("smile").onclick = drawFace;
     document.getElementById("pyramid").onclick = drawPyramid;
-=======
-    onmouseclick
->>>>>>> 701d2215564d4b7b2c712fa3558d1eb6e757db68
 }
 
 /*
@@ -24,14 +20,16 @@ window.onload = function() {
 
 const sayHello = function() {
   var message = prompt("Message:")
+  var canvas = document.getElementById("student-canvas-1");
+  var ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.height, canvas.width);
   while (message.length > 50) {
     alert("Your message is too long. Keep it under 50 characters")
     var message = prompt("Message")
   }
-  var canvas = document.getElementById("student-canvas-1");
-  var ctx = canvas.getContext('2d');
+
   ctx.font="48px Sans-serif";
-  ctx.clearRect(0, 0, canvas.height, canvas.width);
+
   ctx.strokeText(message, 30, 70);
 };
 
@@ -40,7 +38,6 @@ const sayHello = function() {
  */
 
 const drawRectangle = function() {
-<<<<<<< HEAD
     var width = prompt("Width:");
     var height = prompt("Height:");
     var xcoord = prompt("X:");
@@ -72,11 +69,8 @@ const drawRectangle = function() {
     }
     var canvas = document.getElementById("student-canvas-2");
     var ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.height, canvas.width);
-    ctx.strokeRect( xcoord, ycoord, width, height);
-=======
 
->>>>>>> 701d2215564d4b7b2c712fa3558d1eb6e757db68
+    ctx.strokeRect(xcoord, ycoord, width, height);
 };
 
 /*
@@ -84,29 +78,56 @@ const drawRectangle = function() {
  */
 
 const drawColoredRectangle = function() {
-<<<<<<< HEAD
-  var color = prompt("Color:");
   var canvas = document.getElementById("student-canvas-3");
   var ctx = canvas.getContext("2d");
-  var color = color.toUpperCase()
-
-switch (color) {
-  case BLACK:
-    ctx.fillstyle = "red"
-    break;
-  case BLUE:
-    ctx.fillstyle = "blue"
-    break;
-
-}
-
   ctx.clearRect(0, 0, canvas.height, canvas.width);
-  ctx.strokeRect( 10, 10, 100, 50);
-=======
+  var color = prompt("Color:");
+  var color = color.toUpperCase()
+  ctx.fillstyle;
 
->>>>>>> 701d2215564d4b7b2c712fa3558d1eb6e757db68
+  if (color == "BLACK") {
+    ctx.beginPath();
+    ctx.fillStyle = "black";
+    ctx.rect(10, 10, 100, 50);
+    ctx.fill();
+    ctx.fillRect(10, 10, 100, 50);
+  } else if (color == "BLUE") {
+      ctx.beginPath();
+      ctx.fillStyle = "blue";
+      ctx.rect(10, 10, 100, 50);
+      ctx.fill();
+  } else if (color == "GREEN") {
+    ctx.beginPath();
+    ctx.fillStyle = "green";
+    ctx.rect(10, 10, 100, 50);
+    ctx.fill();
+      ctx.fillRect(10, 10, 100, 50);
+  } else if (color == "ORANGE") {
+    ctx.beginPath();
+    ctx.fillStyle = "orange";
+    ctx.rect(10, 10, 100, 50);
+    ctx.fill();
+      ctx.fillRect(10, 10, 100, 50);
+  } else if (color == "PURPLE") {
+      ctx.beginPath();
+      ctx.fillStyle = "purple";
+      ctx.rect(10, 10, 100, 50);
+      ctx.fill();
+  } else if (color == "RED") {
+    ctx.beginPath();
+    ctx.fillStyle = "red";
+    ctx.rect(10, 10, 100, 50);
+    ctx.fill();
+  } else if (color == "YELLOW") {
+    ctx.beginPath();
+    ctx.fillStyle = "yellow";
+    ctx.rect(10, 10, 100, 50);
+    ctx.fill();
+  } else {
+      alert(color.toLowerCase + " is not a supported color.")
+  }
+
 };
-
 
 
 
@@ -115,11 +136,7 @@ switch (color) {
  */
 
 const drawTriangle = function() {
-<<<<<<< HEAD
     // write your exercise 4 code here
-=======
-
->>>>>>> 701d2215564d4b7b2c712fa3558d1eb6e757db68
 };
 
 /*
@@ -127,11 +144,7 @@ const drawTriangle = function() {
  */
 
 const drawFace = function() {
-<<<<<<< HEAD
     // write your exercise 4 code here
-=======
-
->>>>>>> 701d2215564d4b7b2c712fa3558d1eb6e757db68
 };
 
 /*
@@ -139,9 +152,5 @@ const drawFace = function() {
  */
 
 const drawPyramid = function() {
-<<<<<<< HEAD
     // write your exercise 5 code here
-=======
-
->>>>>>> 701d2215564d4b7b2c712fa3558d1eb6e757db68
 };
