@@ -179,7 +179,22 @@ const drawTriangle = function() {
  */
 
 const drawFace = function() {
-    // write your exercise 4 code here
+  var canvas = document.getElementById("student-canvas-5");
+  var ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.height, canvas.width*2);
+  var start = 0
+  while (radius > 256 || radius < 32 || start == 0) {
+    var radius = prompt("Radius:")
+    ++start
+    if (radius > 256) {
+      alert("Your smiley face won't fit on the canvas.")
+    } else if (radius < 32) {
+        alert("Your radius must be at least 32.")
+    }
+  }
+  ctx.beginPath();
+  ctx.arc(canvas.width/2, canvas.height / 2, radius, 0, 2*Math.PI)
+  ctx.stroke()
 };
 
 /*
