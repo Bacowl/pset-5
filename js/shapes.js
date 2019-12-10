@@ -38,6 +38,9 @@ const sayHello = function() {
  */
 
 const drawRectangle = function() {
+  var canvas = document.getElementById("student-canvas-2");
+  var ctx = canvas.getContext('2d');
+
     var width = prompt("Width:");
     var height = prompt("Height:");
     var xcoord = prompt("X:");
@@ -67,8 +70,7 @@ const drawRectangle = function() {
       var xcoord = prompt("X:")
       var ycoord = prompt("Y:")
     }
-    var canvas = document.getElementById("student-canvas-2");
-    var ctx = canvas.getContext('2d');
+
 
     ctx.strokeRect(xcoord, ycoord, width, height);
 };
@@ -81,52 +83,61 @@ const drawColoredRectangle = function() {
   var canvas = document.getElementById("student-canvas-3");
   var ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.height, canvas.width);
-  var color = prompt("Color:");
-  var color = color.toUpperCase()
+  var error = 1;
   ctx.fillstyle;
-
+while (error == 1) {
+  var color = prompt("Color:");
+  var color = color.toUpperCase();
+  var colorLower = color.toLowerCase();
   if (color == "BLACK") {
     ctx.beginPath();
     ctx.fillStyle = "black";
     ctx.rect(10, 10, 100, 50);
     ctx.fill();
     ctx.fillRect(10, 10, 100, 50);
+    --error
   } else if (color == "BLUE") {
       ctx.beginPath();
       ctx.fillStyle = "blue";
       ctx.rect(10, 10, 100, 50);
       ctx.fill();
+      --error
   } else if (color == "GREEN") {
     ctx.beginPath();
     ctx.fillStyle = "green";
     ctx.rect(10, 10, 100, 50);
     ctx.fill();
-      ctx.fillRect(10, 10, 100, 50);
+    ctx.fillRect(10, 10, 100, 50);
+    --error
   } else if (color == "ORANGE") {
     ctx.beginPath();
     ctx.fillStyle = "orange";
     ctx.rect(10, 10, 100, 50);
     ctx.fill();
       ctx.fillRect(10, 10, 100, 50);
+      --error
   } else if (color == "PURPLE") {
       ctx.beginPath();
       ctx.fillStyle = "purple";
       ctx.rect(10, 10, 100, 50);
       ctx.fill();
+      --error
   } else if (color == "RED") {
     ctx.beginPath();
     ctx.fillStyle = "red";
     ctx.rect(10, 10, 100, 50);
     ctx.fill();
+    --error
   } else if (color == "YELLOW") {
     ctx.beginPath();
     ctx.fillStyle = "yellow";
     ctx.rect(10, 10, 100, 50);
     ctx.fill();
+    --error
   } else {
-      alert(color.toLowerCase + " is not a supported color.")
+      alert(colorLower + " is not a supported color.")
   }
-
+}
 };
 
 
@@ -136,8 +147,32 @@ const drawColoredRectangle = function() {
  */
 
 const drawTriangle = function() {
-    // write your exercise 4 code here
+  var canvas = document.getElementById("student-canvas-4");
+  var ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.height, canvas.width);
+  var start = 0;
+  while (height*height + base*base !== hypot**2 || height+25 > canvas.height || base + 25 > canvas.width || start == 0) {
+    var side1 = prompt("Side 1:");
+    var side2 = prompt("Side 2:");
+    var side3 = prompt("Side 3:");
+    var height = Math.min(side1, side2, side3);
+    var hypot = Math.max(side1, side2, side3) ;
+    var base = Number(side1) + Number(side2) + Number(side3) - hypot - height;
+    ++start
+    if (height**2 + base **2 != hypot**2) {
+      alert("That's not a valid right triangle")
+    } else if (height+25 > canvas.height || base + 25 > canvas.width) {
+      alert("The triangle won't fit on the canvas.")
+    }
+  }
+  ctx.beginPath();
+  ctx.moveTo(25, 25);
+  ctx.lineTo(25, 25 + height);
+  ctx.lineTo(25 + base, 25 + height)
+  ctx.lineTo(25, 25)
+  ctx.stroke();
 };
+
 
 /*
  * Exercise 5.
