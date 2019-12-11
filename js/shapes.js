@@ -180,13 +180,21 @@ const drawTriangle = function() {
 
 const drawFace = function() {
   var canvas = document.getElementById("student-canvas-5");
+
   var ctx = canvas.getContext("2d");
-  ctx.clearRect(0, 0, canvas.height, canvas.width*2);
-  var start = 0
-  while (radius > 256 || radius < 32 || start == 0) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  var start = 0;
+  var radius = null;
+  while ((radius > 256 || radius < 32 || start == 0 || radius !== Number(radius))) {
     var radius = prompt("Radius:")
     ++start
-    if (radius > 256) {
+    if (radius != null) {
+      radius = Number(radius);
+    }
+
+    if (radius != radius.toString()) {
+      alert("Your radius is not a number.")
+    } else if (radius > 256) {
       alert("Your smiley face won't fit on the canvas.")
     } else if (radius < 32) {
         alert("Your radius must be at least 32.")
@@ -194,6 +202,12 @@ const drawFace = function() {
   }
   ctx.beginPath();
   ctx.arc(canvas.width/2, canvas.height / 2, radius, 0, 2*Math.PI)
+  ctx.moveTo(canvas.width/2 - 0.4*radius + 0.15*radius, canvas.height/2 - 0.4*radius)
+  ctx.arc(canvas.width/2 - 0.4*radius, canvas.height/2 - 0.4*radius, 0.15*radius, 0, 2*Math.PI)
+  ctx.moveTo(canvas.width/2 + 0.4*radius + 0.15*radius, canvas.height/2 - 0.4*radius)
+  ctx.arc(canvas.width/2 + 0.4*radius, canvas.height/2 - 0.4*radius, 0.15*radius, 0, 2*Math.PI)
+  ctx.moveTo( canvas.width / 2 + 0.7*radius,canvas.height/2)
+  ctx.arc(canvas.width/2, canvas.height / 2, 0.7*radius, 0, Math.PI)
   ctx.stroke()
 };
 
@@ -202,5 +216,20 @@ const drawFace = function() {
  */
 
 const drawPyramid = function() {
-    // write your exercise 5 code here
+  var canvas = document.getElementById("student-canvas-6");
+  var ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  var start = 0
+  while (side > 100 || side < 0 || start == 0) {
+    var side = prompt("Side:")
+    ++start
+  }
+  var side = Number(side)
+  ctx.beginPath();
+  ctx.rect(10, canvas.height - 10 - side, side, side);
+  ctx.rect(10 + side, canvas.height - 10 - side, side, side);
+  ctx.rect(10 + side*2, canvas.height - 10 - side, side, side);
+  ctx.rect(10 + side*3, canvas.height - 10 - side, side, side);
+  ctx.rect(10 + side*4, canvas.height - 10 - side, side, side);
+  ctx.stroke();
 };
