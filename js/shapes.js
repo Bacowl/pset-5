@@ -19,18 +19,20 @@ window.onload = function() {
  */
 
 const sayHello = function() {
-  var message = prompt("Message:")
+
   var canvas = document.getElementById("student-canvas-1");
   var ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, canvas.height, canvas.width);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  var message = prompt("Message:")
   while (message.length > 50) {
     alert("Your message is too long. Keep it under 50 characters")
-    var message = prompt("Message")
+    var message = prompt("Message:")
+    ++start
   }
 
   ctx.font="48px Sans-serif";
 
-  ctx.strokeText(message, 30, 70);
+  ctx.strokeText(message, 30, 70, canvas.width);
 };
 
 /*
@@ -40,6 +42,7 @@ const sayHello = function() {
 const drawRectangle = function() {
   var canvas = document.getElementById("student-canvas-2");
   var ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     var width = prompt("Width:");
     var height = prompt("Height:");
@@ -220,16 +223,36 @@ const drawPyramid = function() {
   var ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   var start = 0
-  while (side > 100 || side < 0 || start == 0) {
+  var side = 0
+  while (side > 100 || (side < 1 && side != null) || start == 0 || (side !== Number(side)&& side != null)) {
     var side = prompt("Side:")
     ++start
+      if (side != null) {
+            var side = Number(side)
+      }
+    if (side !== Number(side) && side != null) {
+      alert("Your block size is not a number")
+    } else if (side > 100) {
+      alert("Your pyramid won't fit on the canvas.")
+    } else if (side < 1 && side != null) {
+      alert("Your block size must be at least 1.")
+    }
   }
-  var side = Number(side)
   ctx.beginPath();
   ctx.rect(10, canvas.height - 10 - side, side, side);
   ctx.rect(10 + side, canvas.height - 10 - side, side, side);
   ctx.rect(10 + side*2, canvas.height - 10 - side, side, side);
   ctx.rect(10 + side*3, canvas.height - 10 - side, side, side);
   ctx.rect(10 + side*4, canvas.height - 10 - side, side, side);
+  ctx.rect(10 + side*0.5, canvas.height- 10 - side*2, side, side )
+  ctx.rect(10 + side*1.5, canvas.height- 10 - side*2, side, side )
+  ctx.rect(10 + side*2.5, canvas.height- 10 - side*2, side, side )
+  ctx.rect(10 + side*3.5, canvas.height- 10 - side*2, side, side )
+  ctx.rect(10 + side, canvas.height- 10 - side*3, side, side )
+  ctx.rect(10 + side*2, canvas.height- 10 - side*3, side, side )
+  ctx.rect(10 + side*3, canvas.height- 10 - side*3, side, side )
+  ctx.rect(10 + side*1.5, canvas.height- 10 - side*4, side, side)
+  ctx.rect(10 + side*2.5, canvas.height- 10 - side*4, side, side)
+  ctx.rect(10 + side*2, canvas.height- 10 - side*5, side, side)
   ctx.stroke();
 };
