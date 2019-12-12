@@ -53,9 +53,8 @@ const drawRectangle = function() {
     var height = Number(height);
     var xcoord = Number(xcoord);
     var ycoord = Number(ycoord);
-
-    while (width+xcoord > 1024 || height+ycoord > 512 || xcoord < 0 || ycoord < 0) {
-      if ((width+height+xcoord+ycoord)*0 !== 0) {
+    while (width+xcoord > 1024 || height+ycoord > 512 || xcoord < 0 || ycoord < 0  || isNaN(width) || isNaN(height) || isNaN(xcoord) || isNaN(ycoord)) {
+      if (isNaN(width) || isNaN(height) || isNaN(xcoord) || isNaN(ycoord)) {
         alert("One of your values is not a number")
       } else if (height > 1024 || height < 1) {
         alert("Your height must be between 1 and 1024")
